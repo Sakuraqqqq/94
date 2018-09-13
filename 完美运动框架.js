@@ -1,4 +1,7 @@
 function startMove(e, json, fn) { //e表对象，json表{attr1:itarget1,attr2:itarget2,···}，fn表回调函数
+			if(typeof e == 'string'){
+				e = document.querySelector(e);
+			}
             clearInterval(e.timer); //清除定时器，e.timer表示给每个对象定义一个定时器，避免共用一个定时器
             e.timer = setInterval(function () {
                 for (var attr in json) { //定义attr为json中的变量，即属性，遍历所有属性。避免一个属性变化完后，其他属性也停止变化
